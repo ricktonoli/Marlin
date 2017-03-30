@@ -314,9 +314,13 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
   // Ultimaker
-  #define  DEFAULT_Kp 22.2
-  #define  DEFAULT_Ki 1.08
-  #define  DEFAULT_Kd 114
+//  #define  DEFAULT_Kp 22.2
+//  #define  DEFAULT_Ki 1.08
+//  #define  DEFAULT_Kd 114
+
+#define  DEFAULT_Kp 28.61
+#define  DEFAULT_Ki 2.21
+#define  DEFAULT_Kd 92.82
 
   // MakerGear
   //#define  DEFAULT_Kp 7.0
@@ -449,9 +453,10 @@
 
   // Horizontal distance bridged by diagonal push rods when effector is centered.
   #define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-(DELTA_EFFECTOR_OFFSET)-(DELTA_CARRIAGE_OFFSET))
-//  #define DELTA_RADIUS 109.5
-  #define DELTA_RADIUS 106.5
+//  #define DELTA_RADIUS 106.5
+  #define DELTA_RADIUS 105.0
 
+  
   // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
   #define DELTA_PRINTABLE_RADIUS 90.0
 
@@ -562,9 +567,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION          2000    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION   2000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk (mm/s)
@@ -573,9 +578,9 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-#define DEFAULT_XJERK                 10.0
-#define DEFAULT_YJERK                 10.0
-#define DEFAULT_ZJERK                 10.0 // Must be same as XY for delta
+#define DEFAULT_XJERK                 15.0
+#define DEFAULT_YJERK                 15.0
+#define DEFAULT_ZJERK                 15.0 // Must be same as XY for delta
 #define DEFAULT_EJERK                  5.0
 
 
@@ -964,7 +969,7 @@
 // For DELTA this is the top-center of the Cartesian print volume.
 //#define MANUAL_X_HOME_POS 0
 //#define MANUAL_Y_HOME_POS 0
-#define MANUAL_Z_HOME_POS 244.7 // Distance between the nozzle to printbed after homing
+#define MANUAL_Z_HOME_POS 244.5 // Distance between the nozzle to printbed after homing
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
 //
