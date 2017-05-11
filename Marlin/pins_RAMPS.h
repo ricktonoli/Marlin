@@ -98,7 +98,7 @@
 #define Y_STEP_PIN         60
 #define Y_DIR_PIN          61
 #define Y_ENABLE_PIN       56
-#define Y_CS_PIN           49
+#define Y_CS_PIN           49 
 
 #define Z_STEP_PIN         46
 #define Z_DIR_PIN          48
@@ -121,7 +121,8 @@
 // Swapped TEMP_0_PIN and TEMP_BED_PIN around for stupid sensor stopping working. (Rick)
 #define TEMP_0_PIN         14   // Analog Input
 #define TEMP_1_PIN         15   // Analog Input
-#define TEMP_BED_PIN       13   // Analog Input
+//#define TEMP_BED_PIN       13   // Analog Input
+#define TEMP_BED_PIN       3   // Analog Input
 
 // SPI for Max6675 or Max31855 Thermocouple
 #if DISABLED(SDSUPPORT)
@@ -153,6 +154,9 @@
 #ifndef MOSFET_D_PIN
   #define MOSFET_D_PIN  -1
 #endif
+#ifndef RAMPS_D7_PIN
+  #define RAMPS_D7_PIN   7
+#endif
 #ifndef RAMPS_D8_PIN
   #define RAMPS_D8_PIN   8
 #endif
@@ -167,7 +171,7 @@
 
 #if ENABLED(IS_RAMPS_EFB)                      // Hotend, Fan, Bed
   #define FAN_PIN        RAMPS_D9_PIN
-  #define HEATER_BED_PIN RAMPS_D8_PIN
+  #define HEATER_BED_PIN RAMPS_D7_PIN  // Rick: Changed to D7 for convenience on board mount
 #elif ENABLED(IS_RAMPS_EEF)                    // Hotend, Hotend, Fan
   #define HEATER_1_PIN   RAMPS_D9_PIN
   #define FAN_PIN        RAMPS_D8_PIN
@@ -181,7 +185,7 @@
   #define FAN_PIN        RAMPS_D8_PIN
 #else                                          // Non-specific are "EFB" (i.e., "EFBF" or "EFBE")
   #define FAN_PIN        RAMPS_D9_PIN
-  #define HEATER_BED_PIN RAMPS_D8_PIN
+  #define HEATER_BED_PIN RAMPS_D7_PIN
   #if HOTENDS == 1
     #define FAN1_PIN     MOSFET_D_PIN
   #else
