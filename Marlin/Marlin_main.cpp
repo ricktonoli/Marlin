@@ -542,18 +542,26 @@ static uint8_t target_extruder;
 
 #if ENABLED(DELTA)
 
-  #define SIN_60 0.8660254037844386
-  #define COS_60 0.5
+  #define SIN_58 0.8480480961564259  
+  #define COS_58 0.5299192642332049  
+  #define SIN_59 0.8571673007021122  
+  #define COS_59 0.5150380749100542  
+  #define SIN_60 0.8660254037844386  
+  #define COS_60 0.5  
+  #define SIN_61 0.8746197071393958  
+  #define COS_61 0.4848096202463370  
+  #define SIN_62 0.8829475928589269  
+  #define COS_62 0.4694715627858907  
 
   float delta[ABC],
         endstop_adj[ABC] = { 0 };
 
   // these are the default values, can be overriden with M665
   float delta_radius = DELTA_RADIUS,
-        delta_tower1_x = -SIN_60 * (delta_radius + DELTA_RADIUS_TRIM_TOWER_1), // front left tower
-        delta_tower1_y = -COS_60 * (delta_radius + DELTA_RADIUS_TRIM_TOWER_1),
-        delta_tower2_x =  SIN_60 * (delta_radius + DELTA_RADIUS_TRIM_TOWER_2), // front right tower
-        delta_tower2_y = -COS_60 * (delta_radius + DELTA_RADIUS_TRIM_TOWER_2),
+        delta_tower1_x = -SIN_59 * (delta_radius + DELTA_RADIUS_TRIM_TOWER_1), // front left tower
+        delta_tower1_y = -COS_59 * (delta_radius + DELTA_RADIUS_TRIM_TOWER_1),
+        delta_tower2_x =  SIN_61 * (delta_radius + DELTA_RADIUS_TRIM_TOWER_2), // front right tower
+        delta_tower2_y = -COS_61 * (delta_radius + DELTA_RADIUS_TRIM_TOWER_2),
         delta_tower3_x = 0,                                                    // back middle tower
         delta_tower3_y = (delta_radius + DELTA_RADIUS_TRIM_TOWER_3),
         delta_diagonal_rod = DELTA_DIAGONAL_ROD,
@@ -8818,10 +8826,10 @@ void ok_to_send() {
    * settings have been changed (e.g., by M665).
    */
   void recalc_delta_settings(float radius, float diagonal_rod) {
-    delta_tower1_x = -SIN_60 * (radius + DELTA_RADIUS_TRIM_TOWER_1);  // front left tower
-    delta_tower1_y = -COS_60 * (radius + DELTA_RADIUS_TRIM_TOWER_1);
-    delta_tower2_x =  SIN_60 * (radius + DELTA_RADIUS_TRIM_TOWER_2);  // front right tower
-    delta_tower2_y = -COS_60 * (radius + DELTA_RADIUS_TRIM_TOWER_2);
+    delta_tower1_x = -SIN_59 * (radius + DELTA_RADIUS_TRIM_TOWER_1);  // front left tower
+    delta_tower1_y = -COS_59 * (radius + DELTA_RADIUS_TRIM_TOWER_1);
+    delta_tower2_x =  SIN_61 * (radius + DELTA_RADIUS_TRIM_TOWER_2);  // front right tower
+    delta_tower2_y = -COS_61 * (radius + DELTA_RADIUS_TRIM_TOWER_2);
     delta_tower3_x = 0.0;                                             // back middle tower
     delta_tower3_y = (radius + DELTA_RADIUS_TRIM_TOWER_3);
     delta_diagonal_rod_2_tower_1 = sq(diagonal_rod + delta_diagonal_rod_trim_tower_1);
